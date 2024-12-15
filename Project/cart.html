@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .cart-item {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .cart-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .remove-btn {
+            background-color: #e44d26;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Your Logo</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#products">Products</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart (<span id="cart-count">0</span>)</a></li>
+        </ul>
+    </nav>
+
+    <div class="cart-page">
+        <h1>Your Cart</h1>
+        <div id="cartItems" class="cart-items"></div>
+        <div id="checkoutDetails" style="display: none;">
+            <p id="totalAmount"></p>
+            <p id="totalQuantity"></p>
+            <button onclick="buyNow()">Buy Now</button>
+        </div>
+        <button id="proceedToCheckout" onclick="proceedToCheckout()">Proceed to Checkout</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cartItemsContainer = document.getElementById('cartItems');
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            cart.forEach((item, index) => {
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+                cartItem.innerHTML = `
+                    <img src="${item.imageUrl}" alt="${item.title}" width="100">
+                    <h3>${item.title}</h3>
+                    <p>Price: ${item.price}</p>
+                    <div>
+                        <button onclick="changeQuantity(${index}, -1)">-</button>
+                        <span>Quantity: ${item.quantity}</span>
+                        <button onclick="changeQuantity(${index}, 1)">+</button>
+                    </div>
+                    <button class="remove-btn" onclick="removeFromCart(${index})">Remove</button>
+                `;
+                cartItemsContainer.appendChild(cartItem);
+
+                // Add animation class after a short delay
+                setTimeout(() => {
+                    cartItem.classList.add('visible');
+                }, index * 100); // Stagger animations
+            });
+        });
+
+        function changeQuantity(index, change) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            if (cart[index].quantity + change > 0) {
+                cart[index].quantity += change;
+                localStorage.setItem('cart', JSON.stringify(cart));
+                location.reload(); // Refresh the page to update the cart display
+            }
+        }
+
+        function removeFromCart(index) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            location.reload(); // Refresh the page to update the cart display
+        }
+
+        function proceedToCheckout() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let totalAmount = 0;
+            let totalQuantity = 0;
+
+            cart.forEach(item => {
+                const price = parseFloat(item.price.replace('₹', '')); // Remove currency symbol and parse as float
+                totalAmount += price * item.quantity;
+                totalQuantity += item.quantity;
+            });
+
+            document.getElementById('totalAmount').innerText = `Total Amount: ₹${totalAmount.toFixed(2)}`;
+            document.getElementById('totalQuantity').innerText = `Total Quantity: ${totalQuantity}`;
+
+            document.getElementById('checkoutDetails').style.display = 'block';
+            document.getElementById('proceedToCheckout').style.display = 'none';
+        }
+
+        function buyNow() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let message = 'I want to buy these items: ';
+            cart.forEach(item => {
+                message += `${item.title} (Quantity: ${item.quantity}), `;
+            });
+
+            const encodedMessage = encodeURIComponent(message);
+            window.location.href = `https://wa.me/yourwhatsappnumber?text=${encodedMessage}`;
+        }
+    </script>
+</body>
+</html> 

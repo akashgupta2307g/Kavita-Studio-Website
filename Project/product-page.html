@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .product-page {
+            padding: 2rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .product-image img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .product-details {
+            padding: 1rem;
+        }
+
+        .size-options, .color-options {
+            margin: 1rem 0;
+        }
+
+        .size-btn, .color-btn {
+            padding: 0.5rem 1rem;
+            margin: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .size-btn.selected, .color-btn.selected {
+            background: #333;
+            color: white;
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .quantity-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid #ddd;
+            cursor: pointer;
+        }
+
+        .buy-options {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .buy-now-btn, .add-to-cart-btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .buy-now-btn {
+            background: #e44d26;
+            color: white;
+        }
+
+        .add-to-cart-btn {
+            background: #333;
+            color: white;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .product-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Your Logo</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#products">Products</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="product-page">
+        <a href="javascript:history.back()" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Back
+        </a>
+        
+        <div class="product-container">
+            <div class="product-image">
+                <img id="productImage" src="" alt="Product Image">
+            </div>
+            
+            <div class="product-details">
+                <h1 id="productTitle"></h1>
+                <div class="rating">
+                    <span id="productRating" class="stars"></span>
+                    <span id="productReviews" class="reviews"></span>
+                </div>
+                <p id="productPrice" class="price"></p>
+                <p id="productDescription" class="description"></p>
+
+                <div class="size-options">
+                    <h3>Select Size</h3>
+                    <button class="size-btn">S</button>
+                    <button class="size-btn selected">M</button>
+                    <button class="size-btn">L</button>
+                    <button class="size-btn">XL</button>
+                </div>
+
+                <div class="color-options">
+                    <h3>Select Color</h3>
+                    <button class="color-btn selected">Black</button>
+                    <button class="color-btn">White</button>
+                    <button class="color-btn">Blue</button>
+                    <button class="color-btn">Red</button>
+                </div>
+
+                <div class="quantity-selector">
+                    <h3>Quantity:</h3>
+                    <button class="quantity-btn" onclick="updateQuantity(-1)">-</button>
+                    <span id="quantity">1</span>
+                    <button class="quantity-btn" onclick="updateQuantity(1)">+</button>
+                </div>
+
+                <div class="buy-options">
+                    <button class="buy-now-btn" onclick="proceedToCheckout()">Buy Now</button>
+                    <button class="add-to-cart-btn" onclick="addToCart()">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Load product details from sessionStorage
+        window.onload = function() {
+            const productDetails = JSON.parse(sessionStorage.getItem('selectedProduct'));
+            if (productDetails) {
+                document.getElementById('productImage').src = productDetails.imageUrl;
+                document.getElementById('productTitle').textContent = productDetails.title;
+                document.getElementById('productRating').textContent = productDetails.rating;
+                document.getElementById('productReviews').textContent = productDetails.reviews;
+                document.getElementById('productPrice').textContent = productDetails.price;
+                document.getElementById('productDescription').textContent = productDetails.description;
+            }
+        };
+
+        // Size and Color selection
+        document.querySelectorAll('.size-btn, .color-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove selected class from siblings
+                this.parentElement.querySelectorAll('button').forEach(btn => {
+                    btn.classList.remove('selected');
+                });
+                // Add selected class to clicked button
+                this.classList.add('selected');
+            });
+        });
+
+        // Quantity update
+        function updateQuantity(change) {
+            const quantityElement = document.getElementById('quantity');
+            let quantity = parseInt(quantityElement.textContent) + change;
+            if (quantity < 1) quantity = 1;
+            if (quantity > 10) quantity = 10;
+            quantityElement.textContent = quantity;
+        }
+
+        // Checkout function
+        function proceedToCheckout() {
+            const size = document.querySelector('.size-btn.selected').textContent;
+            const color = document.querySelector('.color-btn.selected').textContent;
+            const quantity = document.getElementById('quantity').textContent;
+            
+            // Store checkout details
+            const checkoutDetails = {
+                product: JSON.parse(sessionStorage.getItem('selectedProduct')),
+                size,
+                color,
+                quantity
+            };
+            sessionStorage.setItem('checkoutDetails', JSON.stringify(checkoutDetails));
+            
+            // Redirect to checkout page (you'll need to create this)
+            // window.location.href = 'checkout.html';
+            
+            // For now, just show an alert
+            alert('Proceeding to checkout with:\n' +
+                  `Size: ${size}\n` +
+                  `Color: ${color}\n` +
+                  `Quantity: ${quantity}`);
+        }
+
+        // Add to cart function
+        function addToCart() {
+            const size = document.querySelector('.size-btn.selected').textContent;
+            const color = document.querySelector('.color-btn.selected').textContent;
+            const quantity = document.getElementById('quantity').textContent;
+            
+            alert('Added to cart:\n' +
+                  `Size: ${size}\n` +
+                  `Color: ${color}\n` +
+                  `Quantity: ${quantity}`);
+        }
+    </script>
+</body>
+</html> 

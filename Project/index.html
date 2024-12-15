@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kavita Studio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <style>
+        .logo {
+            animation: colorBlink 2s infinite;
+        }
+
+        @keyframes colorBlink {
+            0% { color: red; }
+            25% { color: blue; }
+            50% { color: green; }
+            75% { color: orange; }
+            100% { color: red; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Kavita Studio</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart (<span id="cart-count">0</span>)</a></li>
+        </ul>
+    </nav>
+
+    <!-- Image Slider -->
+    <section id="home" class="slider">
+        <div class="slide-container">
+            <div class="slide active">
+                <img src="images/image.jpg" alt="Slider 1">
+            </div>
+            <div class="slide">
+                <img src="images/image2.jpg" alt="Slider 2">
+            </div>
+            <div class="slide">
+                <img src="images/image3.webp" alt="Slider 3">
+            </div>
+            <div class="slide"></div>
+                <img src="images/Kavita Studio.jpg" alt="Slider 3">
+            </div>
+            <div class="slide"></div>
+                <img src="images/FIND YOUR VIBE.jpg" alt="Slider 3">
+            </div>
+        </div>
+        <div class="slider-buttons">
+            <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
+            <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+    <!-- Call-to-Action with Scrolling Background -->
+    <div class="call-to-action-background">
+        <div class="call-to-action-text">
+            <p>Discover our exclusive new products!</p>
+        </div>
+    </div>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <!-- Service Links -->
+        <div class="service-links">
+            <a href="wedding-photography.html">Wedding Photography</a>
+            <a href="online-services.html">Online Services</a>
+            <a href="photo-studio.html">Photo Studio</a>
+        </div>
+
+        <!-- Filters Section -->
+        <div class="filters-section">
+            <div class="decorative-line"></div>
+            <div class="filters">
+                <h3>Filters</h3>
+                <div class="filter-group">
+                    <h4>Price</h4>
+                    <!-- Add price filters -->
+                </div>
+            </div>
+            <div class="sort-options">
+                <span>Sort by:</span>
+                <select id="sortOptions">
+                    <option>Recommended</option>
+                    <option>New</option>
+                    <option>Price: Low to High</option>
+                    <option>Price: High to Low</option>
+                </select>
+            </div>
+        </div>
+        <h2>Our Products</h2>
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card" data-aos="fade-up">
+                <div class="badge">BEST SELLER</div>
+                <div class="product-image">
+                    <img src="images/download.jpeg" alt="Product 1">
+                    <button class="quick-view">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>Personalized Photo Mug</h3>
+                    <div class="rating">
+                        <span class="stars">4.5 ★</span>
+                        <span class="reviews">(7157 Reviews)</span>
+                    </div>
+                    <p class="price">₹299</p>
+                    <button class="buy-now-btn">BUY NOW</button>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card" data-aos="fade-up">
+                <div class="badge">NEW</div>
+                <div class="product-image">
+                    <img src="images/image4.jpg" alt="Product 2">
+                    <button class="quick-view">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>Custom T-Shirt</h3>
+                    <div class="rating">
+                        <span class="stars">4.3 ★</span>
+                        <span class="reviews">(5238 Reviews)</span>
+                    </div>
+                    <p class="price">₹499</p>
+                    <button class="buy-now-btn">BUY NOW</button>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card" data-aos="fade-up">
+                <div class="badge">TRENDING</div>
+                <div class="product-image">
+                    <img src="images/Photo Cushion.jpeg" alt="Product 3">
+                    <button class="quick-view">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>Photo Cushion</h3>
+                    <div class="rating">
+                        <span class="stars">4.7 ★</span>
+                        <span class="reviews">(3429 Reviews)</span>
+                    </div>
+                    <p class="price">₹399</p>
+                    <button class="buy-now-btn">BUY NOW</button>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card" data-aos="fade-up">
+                <div class="product-image">
+                    <img src="images/phone cover.jpg" alt="Product 4">
+                    <button class="quick-view">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>Custom Phone Case</h3>
+                    <div class="rating">
+                        <span class="stars">4.4 ★</span>
+                        <span class="reviews">(2891 Reviews)</span>
+                    </div>
+                    <p class="price">₹349</p>
+                    <button class="buy-now-btn">BUY NOW</button>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="product-card" data-aos="fade-up">
+                <div class="badge">HOT</div>
+                <div class="product-image">
+                    <img src="images/coll.jpg" alt="Product 5">
+                    <button class="quick-view">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>Wall Art Canvas</h3>
+                    <div class="rating">
+                        <span class="stars">4.8 ★</span>
+                        <span class="reviews">(1957 Reviews)</span>
+                    </div>
+                    <p class="price">₹899</p>
+                    <button class="buy-now-btn">BUY NOW</button>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="product-card" data-aos="fade-up">
+                <div class="product-image">
+                    <img src="images/birthday collage.jpg" alt="Product 6">
+                    <button class="quick-view">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>Photo Keychain</h3>
+                    <div class="rating">
+                        <span class="stars">4.2 ★</span>
+                        <span class="reviews">(2145 Reviews)</span>
+                    </div>
+                    <p class="price">₹199</p>
+                    <button class="buy-now-btn">BUY NOW</button>
+                </div>
+            </div>
+
+            <!-- Product 7 -->
+            <div class="product-card" data-aos="fade-up">
+                <div class="badge">POPULAR</div>
+                <div class="product-image">
+                    <img src="images/frame3.jpg" alt="Product 7">
+                    <button class="quick-view">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>Custom Notebook</h3>
+                    <div class="rating">
+                        <span class="stars">4.6 ★</span>
+                        <span class="reviews">(3567 Reviews)</span>
+                    </div>
+                    <p class="price">₹249</p>
+                    <button class="buy-now-btn">BUY NOW</button>
+                </div>
+            </div>
+
+            <!-- Product 8 -->
+            <div class="product-card" data-aos="fade-up">
+                <div class="product-image">
+                    <img src="images/mouse.jpeg" alt="Product 8">
+                    <button class="quick-view">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>Custom Mouse Pad</h3>
+                    <div class="rating">
+                        <span class="stars">4.3 ★</span>
+                        <span class="reviews">(1876 Reviews)</span>
+                    </div>
+                    <p class="price">₹199</p>
+                    <button class="buy-now-btn">BUY NOW</button>
+                </div>
+            </div>
+
+            <!-- Product 9 -->
+            <div class="product-card" data-aos="fade-up">
+                <div class="badge">NEW</div>
+                <div class="product-image">
+                    <img src="https://source.unsplash.com/400x300?calendar" alt="Product 9">
+                    <button class="quick-view">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>Photo Calendar</h3>
+                    <div class="rating">
+                        <span class="stars">4.5 ★</span>
+                        <span class="reviews">(2234 Reviews)</span>
+                    </div>
+                    <p class="price">₹449</p>
+                    <button class="buy-now-btn">BUY NOW</button>
+                </div>
+            </div>
+
+            <!-- Product 10 -->
+            <div class="product-card" data-aos="fade-up">
+                <div class="product-image">
+                    <img src="images/bottle.jpeg" alt="Product 10">
+                    <button class="quick-view">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>Custom Water Bottle</h3>
+                    <div class="rating">
+                        <span class="stars">4.4 ★</span>
+                        <span class="reviews">(1543 Reviews)</span>
+                    </div>
+                    <p class="price">₹399</p>
+                    <button class="buy-now-btn">BUY NOW</button>
+                </div>
+            </div>
+
+            <!-- Product 11 -->
+            <div class="product-card" data-aos="fade-up">
+                <div class="badge">TRENDING</div>
+                <div class="product-image">
+                    <img src="https://source.unsplash.com/400x300?frame" alt="Product 11">
+                    <button class="quick-view">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>Photo Frame</h3>
+                    <div class="rating">
+                        <span class="stars">4.7 ★</span>
+                        <span class="reviews">(3129 Reviews)</span>
+                    </div>
+                    <p class="price">₹599</p>
+                    <button class="buy-now-btn">BUY NOW</button>
+                </div>
+            </div>
+
+            <!-- Product 12 -->
+            <div class="product-card" data-aos="fade-up">
+                <div class="product-image">
+                    <img src="https://source.unsplash.com/400x300?lamp" alt="Product 12">
+                    <button class="quick-view">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>Custom Night Lamp</h3>
+                    <div class="rating">
+                        <span class="stars">4.6 ★</span>
+                        <span class="reviews">(987 Reviews)</span>
+                    </div>
+                    <p class="price">₹799</p>
+                    <button class="buy-now-btn">BUY NOW</button>
+                </div>
+            </div>
+
+            <!-- Product 13 -->
+            <div class="product-card" data-aos="fade-up">
+                <div class="badge">BEST GIFT</div>
+                <div class="product-image">
+                    <img src="https://source.unsplash.com/400x300?wallet" alt="Product 13">
+                    <button class="quick-view">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>Personalized Wallet</h3>
+                    <div class="rating">
+                        <span class="stars">4.5 ★</span>
+                        <span class="reviews">(2654 Reviews)</span>
+                    </div>
+                    <p class="price">₹699</p>
+                    <button class="buy-now-btn">BUY NOW</button>
+                </div>
+            </div>
+
+            <!-- Product 14 -->
+            <div class="product-card" data-aos="fade-up">
+                <div class="product-image">
+                    <img src="https://source.unsplash.com/400x300?bracelet" alt="Product 14">
+                    <button class="quick-view">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>Custom Bracelet</h3>
+                    <div class="rating">
+                        <span class="stars">4.3 ★</span>
+                        <span class="reviews">(1432 Reviews)</span>
+                    </div>
+                    <p class="price">₹299</p>
+                    <button class="buy-now-btn">BUY NOW</button>
+                </div>
+            </div>
+
+            <!-- Product 15 -->
+            <div class="product-card" data-aos="fade-up">
+                <div class="badge">HOT</div>
+                <div class="product-image">
+                    <img src="https://source.unsplash.com/400x300?necklace" alt="Product 15">
+                    <button class="quick-view">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>Name Necklace</h3>
+                    <div class="rating">
+                        <span class="stars">4.8 ★</span>
+                        <span class="reviews">(3876 Reviews)</span>
+                    </div>
+                    <p class="price">₹899</p>
+                    <button class="buy-now-btn">BUY NOW</button>
+                </div>
+            </div>
+
+            <!-- Product 16 -->
+            <div class="product-card" data-aos="fade-up">
+                <div class="product-image">
+                    <img src="https://source.unsplash.com/400x300?ring" alt="Product 16">
+                    <button class="quick-view">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>Engraved Ring</h3>
+                    <div class="rating">
+                        <span class="stars">4.4 ★</span>
+                        <span class="reviews">(2187 Reviews)</span>
+                    </div>
+                    <p class="price">₹499</p>
+                    <button class="buy-now-btn">BUY NOW</button>
+                </div>
+            </div>
+
+            <!-- Product 17 -->
+            <div class="product-card" data-aos="fade-up">
+                <div class="badge">POPULAR</div>
+                <div class="product-image">
+                    <img src="https://source.unsplash.com/400x300?pendant" alt="Product 17">
+                    <button class="quick-view">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>Custom Pendant</h3>
+                    <div class="rating">
+                        <span class="stars">4.6 ★</span>
+                        <span class="reviews">(1654 Reviews)</span>
+                    </div>
+                    <p class="price">₹599</p>
+                    <button class="buy-now-btn">BUY NOW</button>
+                </div>
+            </div>
+
+            <!-- Product 18 -->
+            <div class="product-card" data-aos="fade-up">
+                <div class="product-image">
+                    <img src="https://source.unsplash.com/400x300?earrings" alt="Product 18">
+                    <button class="quick-view">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>Personalized Earrings</h3>
+                    <div class="rating">
+                        <span class="stars">4.5 ★</span>
+                        <span class="reviews">(987 Reviews)</span>
+                    </div>
+                    <p class="price">₹399</p>
+                    <button class="buy-now-btn">BUY NOW</button>
+                </div>
+            </div>
+
+            <!-- Product 19 -->
+            <div class="product-card" data-aos="fade-up">
+                <div class="badge">NEW</div>
+                <div class="product-image">
+                    <img src="https://source.unsplash.com/400x300?watch" alt="Product 19">
+                    <button class="quick-view">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>Engraved Watch</h3>
+                    <div class="rating">
+                        <span class="stars">4.7 ★</span>
+                        <span class="reviews">(2345 Reviews)</span>
+                    </div>
+                    <p class="price">₹1499</p>
+                    <button class="buy-now-btn">BUY NOW</button>
+                </div>
+            </div>
+
+            <!-- Product 20 -->
+            <div class="product-card" data-aos="fade-up">
+                <div class="product-image">
+                    <img src="https://source.unsplash.com/400x300?locket" alt="Product 20">
+                    <button class="quick-view">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>Custom Locket</h3>
+                    <div class="rating">
+                        <span class="stars">4.4 ★</span>
+                        <span class="reviews">(1765 Reviews)</span>
+                    </div>
+                    <p class="price">₹699</p>
+                    <button class="buy-now-btn">BUY NOW</button>
+                </div>
+            </div>
+        </div>
+        <!-- Add pagination controls -->
+        <div class="pagination">
+            <button id="prevPage" disabled>Previous</button>
+            <span id="pageInfo"></span>
+            <button id="nextPage">Next</button>
+        </div>
+
+        <!-- Related Products Section -->
+        <section id="related-products" class="related-products">
+            <h2>Explore More</h2>
+            <div class="related-product-categories">
+                <div class="related-category" onclick="showRelatedProducts('photo-frame')">
+                    <h3>Customized Photo Frame</h3>
+                    <p>Click to explore more photo frames</p>
+                </div>
+                <div class="related-category" onclick="showRelatedProducts('mug')">
+                    <h3>Customized Mug</h3>
+                    <p>Click to explore more mugs</p>
+                </div>
+                <div class="related-category" onclick="showRelatedProducts('tshirt')">
+                    <h3>Customized T-Shirt</h3>
+                    <p>Click to explore more t-shirts</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Placeholder for related products -->
+        <div id="relatedProductsContainer" class="related-products-container"></div>
+    </section>
+
+    <!-- Running Line -->
+    <div class="running-line">
+        <p>New Product Launch: Check out our latest collection of personalized gifts!</p>
+    </div>
+
+    <!-- Customer Reviews Section -->
+    <section id="customer-reviews" class="customer-reviews">
+        <h2>Customer Reviews</h2>
+        <div class="review-slider">
+            <div class="review-slide">
+                <p>"Great service and amazing products! Highly recommend."</p>
+                <span>- Customer Name 1</span>
+            </div>
+            <div class="review-slide">
+                <p>"The quality of the products is top-notch. Will buy again!"</p>
+                <span>- Customer Name 2</span>
+            </div>
+            <div class="review-slide">
+                <p>"Fast delivery and excellent customer support."</p>
+                <span>- Customer Name 3</span>
+            </div>
+            <!-- Add more reviews as needed -->
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-container">
+            <form class="contact-form">
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+            <div class="contact-info">
+                <h3>Get in Touch</h3>
+                <p><i class="fas fa-phone"></i> +91 9889387743, 9616784805</p>
+                <p><i class="fas fa-envelope"></i> kavitastudiomajhawan@gmail.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Majhawan Kanpur Nagar</p>
+                <!-- Embed Google Map -->
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5439.590276278625!2d80.30836477875707!3d26.303276261870305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399c4521dc626c07%3A0x77081084d87607ee!2sKavita%20Studio!5e1!3m2!1sen!2sin!4v1734072100667!5m2!1sen!2sin"
+                    width="400"
+                    height="300"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">Kavita Studio</div>
+            <ul class="footer-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="#terms">Terms of Service</a></li>
+                <li><a href="#privacy">Privacy Policy</a></li>
+            </ul>
+            <p>&copy; 2024 Kavita Studio. All rights reserved.</p>
+            <p>Developed & Owned by Akash Gupta</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000, // Animation duration
+            once: true, // Whether animation should happen only once
+        });
+    </script>
+
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="product-details">
+                <div class="product-details-image">
+                    <img id="modalProductImage" src="" alt="Product Image">
+                </div>
+                <div class="product-details-info">
+                    <h2 id="modalProductTitle"></h2>
+                    <div class="rating">
+                        <span id="modalProductRating" class="stars"></span>
+                        <span id="modalProductReviews" class="reviews"></span>
+                    </div>
+                    <p id="modalProductPrice" class="price"></p>
+                    <div class="product-description">
+                        <h3>Product Description</h3>
+                        <p id="modalProductDescription"></p>
+                    </div>
+                    <div class="modal-buttons">
+                        <a id="whatsappButton" href="" target="_blank" class="whatsapp-btn">
+                            <i class="fab fa-whatsapp"></i> Buy on WhatsApp
+                        </a>
+                        <button id="addToCartButton" class="add-to-cart-btn">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Decorative Background -->
+    <div class="decorative-background"></div>
+</body>
+</html>
