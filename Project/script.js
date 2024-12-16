@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const whatsappNumber = '911234567890'; // Replace with your actual WhatsApp number
             const message = encodeURIComponent(`Hi! I'm interested in buying ${title} for ${price}`);
             document.getElementById('whatsappButton').href = 
-                `https://wa.me/${9616784805}?text=${message}`;
+                `https://wa.me/${+917524963330}?text=${message}`;
 
             modal.style.display = 'block';
         } catch (error) {
