@@ -1366,3 +1366,29 @@ header img {
     border-radius: 4px;
     border: 1px solid #ddd;
 }
+
+.announcement-banner {
+    background-color: #ffeb3b;
+    color: #333;
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-top: 1px solid #ffd700;
+    border-bottom: 1px solid #ffd700;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.announcement-banner marquee {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Add hover effect to pause the marquee */
+.announcement-banner marquee:hover {
+    animation-play-state: paused;
+}
+
+.back-button:hover {
+    background: #555 !important;
+}

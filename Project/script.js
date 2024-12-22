@@ -1,3 +1,23 @@
+// Add this at the beginning of script.js
+let pageStack = [];
+
+// Function to navigate to a new page
+function navigateToPage(url) {
+    pageStack.push(window.location.href); // Save current page to stack
+    window.location.href = url;
+}
+
+// Function to go back to previous page
+function goBack() {
+    if (pageStack.length > 0) {
+        const previousPage = pageStack.pop();
+        window.location.href = previousPage;
+    } else {
+        // If stack is empty, go to home page
+        window.location.href = 'index.html';
+    }
+}
+
 // Slider functionality
 const slides = document.querySelectorAll('.slide');
 const prevBtn = document.querySelector('.prev-btn');
@@ -147,6 +167,30 @@ document.addEventListener('DOMContentLoaded', function() {
         aboutSection.style.display = aboutSection.style.display === 'block' ? 'none' : 'block';
         aboutSection.scrollIntoView({ behavior: 'smooth' }); // Scroll to the section
     });
+
+    // Add click handlers to all navigation links
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            // Don't prevent default behavior - let browser handle navigation naturally
+            // This allows the browser's back button to work as expected
+        });
+    });
+
+    // Back button functionality
+    if (!window.location.href.includes('index.html') && !isHomePage()) {
+        const goBackButton = document.createElement('button');
+        goBackButton.innerHTML = '← Back';
+        goBackButton.className = 'back-button';
+        goBackButton.addEventListener('click', function() {
+            // Navigate back to home page or previous page
+            if (document.referrer) {
+                window.history.back();
+            } else {
+                window.location.href = 'index.html';
+            }
+        });
+        document.body.appendChild(goBackButton);
+    }
 });
 
 // Stop propagation for quick view button clicks
@@ -290,4 +334,103 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(() => {
         showReview(currentReview + 1);
     }, 5000); // Change slide every 5 seconds
+});
+
+// Update the browser history handling
+window.addEventListener('popstate', function(event) {
+    // Let the browser handle the navigation naturally
+    if (event.state) {
+        window.location.href = event.state.page;
+    }
+});
+
+// Function to handle page navigation
+function navigatePage(url) {
+    window.location.href = url;
+}
+
+// Initialize navigation stack
+let navigationStack = [];
+
+// Store current page in stack when navigating
+function navigatePage(url) {
+    // Push current URL to stack before navigating
+    navigationStack.push(window.location.href);
+    
+    // Store the stack in sessionStorage to persist across page loads
+    sessionStorage.setItem('navigationStack', JSON.stringify(navigationStack));
+    
+    // Navigate to new page
+    window.location.href = url;
+}
+
+// Handle back navigation
+document.addEventListener('DOMContentLoaded', function() {
+    // Retrieve stack from sessionStorage
+    const storedStack = sessionStorage.getItem('navigationStack');
+    if (storedStack) {
+        navigationStack = JSON.parse(storedStack);
+    }
+
+    // Add event listener for browser's back button
+    window.addEventListener('popstate', function(event) {
+        if (navigationStack.length > 0) {
+            // Get the last URL from stack
+            const previousPage = navigationStack.pop();
+            
+            // Update stack in sessionStorage
+            sessionStorage.setItem('navigationStack', JSON.stringify(navigationStack));
+            
+            // Navigate to previous page
+            window.location.href = previousPage;
+        } else {
+            // If stack is empty, go to home page
+            window.location.href = 'index.html';
+        }
+    });
+
+    // Add click handlers to navigation links
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default navigation
+            navigatePage(this.href);
+        });
+    });
+
+    // Add keyboard shortcut for back navigation (Alt + Left Arrow)
+    document.addEventListener('keydown', function(e) {
+        if (e.altKey && e.key === 'ArrowLeft') {
+            e.preventDefault();
+            window.history.back();
+        }
+    });
+});
+
+// Function to go back
+function goBack() {
+    if (navigationStack.length > 0) {
+        const previousPage = navigationStack.pop();
+        sessionStorage.setItem('navigationStack', JSON.stringify(navigationStack));
+        window.location.href = previousPage;
+    } else {
+        window.location.href = 'index.html';
+    }
+}
+
+// Helper function to check if we're on the home page
+function isHomePage() {
+    const path = window.location.pathname;
+    return path === '/' || path.endsWith('/') || path === '/index.html';
+}
+
+// Add keyboard navigation only for non-home pages
+document.addEventListener('keydown', function(e) {
+    if (!isHomePage() && e.altKey && e.key === 'ArrowLeft') {
+        e.preventDefault();
+        if (document.referrer) {
+            window.history.back();
+        } else {
+            window.location.href = 'index.html';
+        }
+    }
 });
