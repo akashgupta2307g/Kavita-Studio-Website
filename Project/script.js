@@ -240,49 +240,6 @@ document.getElementById('nextPage').addEventListener('click', () => {
 // Initialize the first page
 document.addEventListener('DOMContentLoaded', () => displayProducts(currentPage));
 
-function showRelatedProducts(category) {
-    const relatedProductsContainer = document.getElementById('relatedProductsContainer');
-    relatedProductsContainer.innerHTML = ''; // Clear previous content
-
-    let relatedProducts = [];
-
-    switch (category) {
-        case 'photo-frame':
-            relatedProducts = [
-                { title: 'Wooden Photo Frame', price: '₹499', imageUrl: 'images/photo-frame1.jpg' },
-                { title: 'Metallic Photo Frame', price: '₹699', imageUrl: 'images/photo-frame2.jpg' }
-            ];
-            break;
-        case 'mug':
-            relatedProducts = [
-                { title: 'Ceramic Mug', price: '₹299', imageUrl: 'images/mug1.jpg' },
-                { title: 'Travel Mug', price: '₹399', imageUrl: 'images/mug2.jpg' }
-            ];
-            break;
-        case 'tshirt':
-            relatedProducts = [
-                { title: 'Graphic T-Shirt', price: '₹499', imageUrl: 'images/tshirt1.jpg' },
-                { title: 'Plain T-Shirt', price: '₹399', imageUrl: 'images/tshirt2.jpg' }
-            ];
-            break;
-    }
-
-    relatedProducts.forEach(product => {
-        const productCard = document.createElement('div');
-        productCard.className = 'product-card';
-        productCard.innerHTML = `
-            <div class="product-image">
-                <img src="${product.imageUrl}" alt="${product.title}">
-            </div>
-            <div class="product-info">
-                <h3>${product.title}</h3>
-                <p class="price">${product.price}</p>
-            </div>
-        `;
-        relatedProductsContainer.appendChild(productCard);
-    });
-}
-
 // Function to sort products
 function sortProducts(criteria) {
     const productGrid = document.querySelector('.product-grid');
