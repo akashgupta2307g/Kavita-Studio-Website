@@ -35,7 +35,7 @@
                     <p>• 4 Hours Coverage</p>
                     <p>• All Digital Photos</p>
                     <p class="price">₹15,000</p>
-                    <button class="book-now-btn">Book Now</button>
+                    <button class="book-now-btn" onclick="contactOnWhatsApp('Basic Wedding Package - ₹15,000')">Book Now</button>
                 </div>
             </div>
 
@@ -50,7 +50,7 @@
                     <p>• Pre-wedding Shoot</p>
                     <p>• All Digital Photos</p>
                     <p class="price">₹25,000</p>
-                    <button class="book-now-btn">Book Now</button>
+                    <button class="book-now-btn" onclick="contactOnWhatsApp('Premium Wedding Package - ₹25,000')">Book Now</button>
                 </div>
             </div>
 
@@ -66,7 +66,7 @@
                     <p>• Drone Photography</p>
                     <p>• All Digital Photos</p>
                     <p class="price">₹35,000</p>
-                    <button class="book-now-btn">Book Now</button>
+                    <button class="book-now-btn" onclick="contactOnWhatsApp('Luxury Wedding Package - ₹35,000')">Book Now</button>
                 </div>
             </div>
         </div>
@@ -78,6 +78,14 @@
             duration: 1000,
             once: true
         });
+    </script>
+    <script src="script.js"></script>
+    <script>
+    function contactOnWhatsApp(service) {
+        const whatsappNumber = '917524963330'; // Add your WhatsApp number here
+        const message = encodeURIComponent(`Hi! I'm interested in booking ${service}`);
+        window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+    }
     </script>
 </body>
 </html>

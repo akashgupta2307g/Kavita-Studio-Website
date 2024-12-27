@@ -34,10 +34,10 @@
         <div class="service-grid">
             <!-- Online Service 1 -->
             <div class="service-card" data-aos="fade-up">
-                <img src="images/jivan.jpg" alt="Internet Café">
+                <img src="images/jivan.jpg" alt="Life Certificate">
                 <div class="service-info">
                     <h3>Life Certificate</h3>
-                    <button class="book-now-btn">Contact Now</button>
+                    <button class="book-now-btn" onclick="contactOnWhatsApp('Life Certificate Service')">Contact Now</button>
                 </div>
             </div>
 
@@ -46,7 +46,7 @@
                 <img src="images/labour dep.jpg" alt="Labour Department">
                 <div class="service-info">
                     <h3>Shop & Establishment Certificate</h3>
-                    <button class="book-now-btn">Contact Now</button>
+                    <button class="book-now-btn" onclick="contactOnWhatsApp('Shop & Establishment Certificate Service')">Contact Now</button>
                 </div>
             </div>
 
@@ -55,7 +55,7 @@
                 <img src="images/food.jpg" alt="MSME Certificate">
                 <div class="service-info">
                     <h3>MSME Certificate</h3>
-                    <button class="book-now-btn">Contact Now</button>
+                    <button class="book-now-btn" onclick="contactOnWhatsApp('MSME Certificate Service')">Contact Now</button>
                 </div>
             </div>
         </div>
@@ -69,5 +69,13 @@
         });
     </script>
     <script src="script.js"></script>
+
+    <script>
+    function contactOnWhatsApp(service) {
+        const whatsappNumber = '917524963330'; // Add your WhatsApp number here
+        const message = encodeURIComponent(`Hi! I'm interested in your ${service}`);
+        window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+    }
+    </script>
 </body>
 </html>

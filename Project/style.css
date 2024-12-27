@@ -1392,3 +1392,77 @@ header img {
 .back-button:hover {
     background: #555 !important;
 }
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.hamburger-menu {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin: 0 1rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+    .hamburger-menu {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        padding: 1rem 0;
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        display: block;
+    }
+
+    .nav-links li {
+        margin: 0;
+        padding: 0.5rem 2rem;
+        border-bottom: 1px solid #eee;
+    }
+
+    .nav-links li:last-child {
+        border-bottom: none;
+    }
+}

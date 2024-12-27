@@ -191,6 +191,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         document.body.appendChild(goBackButton);
     }
+
+    // Handle middle section navigation links
+    const middleNavLinks = document.querySelectorAll('.service-links a, .middle-nav a');
+    middleNavLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            // Don't prevent default - let browser handle navigation naturally
+            // This ensures browser's back button works correctly
+        });
+    });
 });
 
 // Stop propagation for quick view button clicks
@@ -432,5 +441,72 @@ document.addEventListener('keydown', function(e) {
         } else {
             window.location.href = 'index.html';
         }
+    }
+});
+
+// Add this function after your existing code
+function bookService(serviceName, price) {
+    const whatsappNumber = '+917524963330'; // Your WhatsApp number
+    const message = encodeURIComponent(`Hi! I'm interested in booking the ${serviceName} for ${price}`);
+    window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+}
+
+// Add this function for mobile menu toggle
+function toggleMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.classList.toggle('active');
+}
+
+// Close menu when clicking outside
+document.addEventListener('click', function(event) {
+    const navLinks = document.querySelector('.nav-links');
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    
+    if (!event.target.closest('.nav-links') && 
+        !event.target.closest('.hamburger-menu') && 
+        navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+    }
+});
+
+// Close menu when clicking a link
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        const navLinks = document.querySelector('.nav-links');
+        navLinks.classList.remove('active');
+    });
+});
+
+// Add touch support for mobile devices
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+document.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+});
+
+function handleSwipe() {
+    const navLinks = document.querySelector('.nav-links');
+    const SWIPE_THRESHOLD = 50;
+    
+    if (touchEndX < touchStartX - SWIPE_THRESHOLD && navLinks.classList.contains('active')) {
+        // Swipe left - close menu
+        navLinks.classList.remove('active');
+    } else if (touchEndX > touchStartX + SWIPE_THRESHOLD && !navLinks.classList.contains('active')) {
+        // Swipe right - open menu
+        navLinks.classList.add('active');
+    }
+}
+
+// Add keyboard shortcut for back navigation
+document.addEventListener('keydown', function(e) {
+    if (!isHomePage() && e.altKey && e.key === 'ArrowLeft') {
+        e.preventDefault();
+        goBack();
     }
 });

@@ -34,7 +34,7 @@
                     <p>• Digital Copy Provided</p>
                     <p>• Professional Lighting</p>
                     <p class="price">₹100 for 4 copies</p>
-                    <button class="book-now-btn">Book Now</button>
+                    <button class="book-now-btn" onclick="contactOnWhatsApp('Passport Photos - ₹100 for 4 copies')">Book Now</button>
                 </div>
             </div>
 
@@ -48,7 +48,7 @@
                     <p>• Digital Enhancement</p>
                     <p>• Printed Photos</p>
                     <p class="price">Starting from ₹1,000</p>
-                    <button class="book-now-btn">Book Now</button>
+                    <button class="book-now-btn" onclick="contactOnWhatsApp('Portrait Photography - Starting from ₹1,000')">Book Now</button>
                 </div>
             </div>
 
@@ -62,7 +62,7 @@
                     <p>• Photo Album Options</p>
                     <p>• Digital Copies</p>
                     <p class="price">Starting from ₹2,000</p>
-                    <button class="book-now-btn">Book Now</button>
+                    <button class="book-now-btn" onclick="contactOnWhatsApp('Family Portraits - Starting from ₹2,000')">Book Now</button>
                 </div>
             </div>
         </div>
@@ -74,6 +74,12 @@
             duration: 1000,
             once: true
         });
+
+        function contactOnWhatsApp(service) {
+            const whatsappNumber = '917524963330'; // Add your WhatsApp number here
+            const message = encodeURIComponent(`Hi! I'm interested in booking ${service}`);
+            window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+        }
     </script>
 </body>
 </html>
