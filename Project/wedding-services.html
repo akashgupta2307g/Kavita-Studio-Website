@@ -25,51 +25,13 @@
     </nav>
 
     <section class="wedding-services">
-        <h1>Wedding Photography Services</h1>
-        <div class="service-grid">
-            <!-- Wedding Package 1 -->
-            <div class="service-card" data-aos="fade-up">
-                <img src="images/wedding1.jpg" alt="Basic Wedding Package">
-                <div class="service-info">
-                    <h3>Basic Wedding Package</h3>
-                    <p>• 100 Printed Photos</p>
-                    <p>• 1 Wedding Album</p>
-                    <p>• 4 Hours Coverage</p>
-                    <p>• All Digital Photos</p>
-                    <p class="price">₹15,000</p>
-                    <button class="book-now-btn" onclick="contactOnWhatsApp('Basic Wedding Package - ₹15,000')">Book Now</button>
-                </div>
-            </div>
-
-            <!-- Wedding Package 2 -->
-            <div class="service-card" data-aos="fade-up">
-                <img src="images/wedding2.jpg" alt="Premium Wedding Package">
-                <div class="service-info">
-                    <h3>Premium Wedding Package</h3>
-                    <p>• 200 Printed Photos</p>
-                    <p>• 2 Wedding Albums</p>
-                    <p>• 8 Hours Coverage</p>
-                    <p>• Pre-wedding Shoot</p>
-                    <p>• All Digital Photos</p>
-                    <p class="price">₹25,000</p>
-                    <button class="book-now-btn" onclick="contactOnWhatsApp('Premium Wedding Package - ₹25,000')">Book Now</button>
-                </div>
-            </div>
-
-            <!-- Wedding Package 3 -->
-            <div class="service-card" data-aos="fade-up">
-                <img src="images/wedding3.jpg" alt="Luxury Wedding Package">
-                <div class="service-info">
-                    <h3>Luxury Wedding Package</h3>
-                    <p>• 300 Printed Photos</p>
-                    <p>• 3 Wedding Albums</p>
-                    <p>• Full Day Coverage</p>
-                    <p>• Pre-wedding Shoot</p>
-                    <p>• Drone Photography</p>
-                    <p>• All Digital Photos</p>
-                    <p class="price">₹35,000</p>
-                    <button class="book-now-btn" onclick="contactOnWhatsApp('Luxury Wedding Package - ₹35,000')">Book Now</button>
-                </div>
+        <div class="coming-soon-container" data-aos="fade-up">
+            <h1>Wedding Photography Services</h1>
+            <div class="coming-soon-content">
+                <h2>Coming Soon!</h2>
+                <p>We're working hard to bring you our exclusive wedding photography packages.</p>
+                <p>Stay tuned for amazing offers and beautiful memories!</p>
+                <a href="index.html" class="back-button">Back to Home</a>
             </div>
         </div>
     </section>
@@ -80,14 +42,6 @@
             duration: 1000,
             once: true
         });
-    </script>
-    <script src="script.js"></script>
-    <script>
-    function contactOnWhatsApp(service) {
-        const whatsappNumber = '917524963330'; // Add your WhatsApp number here
-        const message = encodeURIComponent(`Hi! I'm interested in booking ${service}`);
-        window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
-    }
     </script>
 </body>
 </html>

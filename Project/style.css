@@ -90,18 +90,18 @@ nav {
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
 }
 
 .product-card {
-    background: white;
+    background: rgb(193, 188, 188);
     position: relative;
     border: none;
-    border-radius: 20px;
+    border-radius: 50px;
     overflow: hidden;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s, box-shadow 0.5s;
     cursor: pointer;
     transform: perspective(1000px) rotateY(0deg);
 }
@@ -136,7 +136,6 @@ nav {
 .reviews {
     padding: 70px 0;
     text-align: center;
-    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
     position: relative;
 }
 
@@ -592,8 +591,10 @@ header img {
 .call-to-action-background {
     position: relative;
     overflow: hidden;
-    height: 200px; /* Adjust height as needed */
-    background-color: #000; /* Fallback color */
+    height: 300px;
+    margin-bottom: 3rem;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
 }
 
 .call-to-action-background::before {
@@ -601,31 +602,207 @@ header img {
     position: absolute;
     top: 0;
     left: 0;
-    width: 200%; /* Double the width for scrolling effect */
+    width: 200%;
     height: 100%;
-    background-image: url('images/Untitled\ design\ \(1\).jpg'), url('images/download.jpeg'); /* Add your images */
+    background-image: url('images/Untitled\ design\ \(1\).jpg');
     background-size: cover;
     background-position: center;
-    filter: blur(0px);
-    animation: scrollBackground 20s linear infinite;
-}
-
-@keyframes scrollBackground {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%); /* Move half the width */
-    }
+    opacity: 0.3;
+    animation: gradientBG 15s ease infinite;
 }
 
 .call-to-action-text {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     color: #fff;
     text-align: center;
-    padding: 60px 20px; /* Adjust padding as needed */
-    font-size: 1.5rem;
+    padding: 4rem 2rem;
+}
+
+.call-to-action-text p {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    animation: fadeInUp 1s ease-out;
+}
+
+/* Service Links Styling */
+.service-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+    margin: -50px auto 2rem;
+    max-width: 1200px;
+    position: relative;
+    z-index: 3;
+}
+
+.service-links a {
+    flex: 1;
+    max-width: 300px;
+    padding: 1.5rem 2rem;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-links a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.3),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.service-links a:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    background: linear-gradient(135deg, #007bff 0%, #00c6ff 100%);
+    color: white;
+}
+
+.service-links a:hover::before {
+    left: 100%;
+}
+
+/* Animations */
+@keyframes gradientBG {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(-25%); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .call-to-action-background {
+        height: 250px;
+    }
+
+    .call-to-action-text p {
+        font-size: 1.8rem;
+        padding: 0 1rem;
+    }
+
+    .service-links {
+        flex-direction: column;
+        gap: 1rem;
+        margin: -30px 1rem 2rem;
+    }
+
+    .service-links a {
+        max-width: 100%;
+        padding: 1rem;
+    }
+}
+
+/* Additional Decorative Elements */
+.decorative-line {
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #007bff, transparent);
+    margin: 2rem 0;
+}
+
+/* Running Line Enhancement */
+.running-line {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: #fff;
+    padding: 15px 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.running-line p {
+    animation: scroll 20s linear infinite;
+}
+.service-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    margin: 0 auto 2rem auto;
+    max-width: 800px;
+    position: relative;
+    z-index: 10;
+}
+
+.service-navigation a {
+    position: relative;
+    padding: 0.8rem 1.5rem;
+    margin: 0 0.5rem;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border-radius: 25px;
+}
+
+.service-navigation a:hover {
+    transform: translateY(-2px);
+    background: #007bff;
+    color: white;
+    box-shadow: 0 5px 15px rgba(0,123,255,0.2);
+}
+
+.service-navigation a.active {
+    background: #007bff;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .service-navigation {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        padding: 1rem;
+        margin: 0 1rem 2rem 1rem;
+    }
+
+    .service-navigation a {
+        flex: 1 1 auto;
+        text-align: center;
+        min-width: 150px;
+        margin: 0.25rem;
+    }
+}
+
+/* Products section */
+.products {
+    padding: 2rem 5%;
+    background-color: #899097;
+}
+
+@keyframes scroll {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
 }
 
 .product-image img {
@@ -703,8 +880,7 @@ header img {
     justify-content: center;
     gap: 2rem; /* Space between links */
     margin-bottom: 1.5rem; /* Space below the links */
-    padding: 1rem 0; /* Padding for top and bottom */
-    background-color: #f0f0f0; /* Light background color */
+   
     border-radius: 8px; /* Rounded corners */
 }
 
@@ -1342,12 +1518,25 @@ header img {
 /* Filters Section */
 .filters-section {
     flex: 0 0 200px;
-    background: #fff;
+    /* Removed white background */
     padding: 10px;
     border-radius: 8px;
-    box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+    /* Removed box-shadow to eliminate white effect */
     margin-bottom: 20px;
     order: 2;
+}
+.filters-section h2,
+.filters-section h3,
+.filters-section label,
+.filters-section .sort-by {
+    color: #333;
+}
+.filters-section select {
+    background: transparent;
+    border: 1px solid #130707;
+    padding: 5px;
+    border-radius: 4px;
+    width: 100%;
 }
 
 /* Product Grid */
@@ -1397,6 +1586,48 @@ header img {
     margin-bottom: 20px;
     order: 2;
 }
+/* ... existing code ... */
+
+/* Call to Action Section - Add this after the .running-line styles and before the Products section */
+.call-to-action-background {
+    position: relative;
+    overflow: hidden;
+    height: 300px;
+    margin-bottom: 3rem;
+    border-radius: 20px;
+}
+
+.call-to-action-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background-image: url('images/Untitled\ design\ \(1\).jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.9;
+    animation: gradientBG 15s ease infinite;
+}
+
+.call-to-action-text {
+    position: relative;
+    z-index: 2;
+    color: #333;
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.call-to-action-text p {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(255,255,255,0.5);
+    animation: fadeInUp 1s ease-out;
+}
+
+/* Products Section styles follow... */
 
 /* Add new styles for the products section layout */
 .products {
@@ -1480,22 +1711,25 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background: linear-gradient(to right, #f8f9fa, #e9ecef);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     position: relative;
+    animation: slideDown 0.5s ease-out;
 }
 
 .logo {
     font-size: 1.8rem;
     font-weight: bold;
-    color: #f7d9d9;
-    padding: 10px 0;
-    transition: all 0.3s ease;
+    color: #333;
+    position: relative;
+    animation: fadeInLeft 0.6s ease-out;
 }
 
 .logo:hover {
-    color: #ff4e50;
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
 }
+
 
 .hamburger-menu {
     display: none;
