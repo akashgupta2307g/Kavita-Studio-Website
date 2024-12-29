@@ -134,8 +134,76 @@ nav {
 }
 
 .reviews {
-    color: #666;
-    font-size: 0.9rem;
+    padding: 70px 0;
+    text-align: center;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+    position: relative;
+}
+
+.reviews h2 {
+    font-size: 2.8em;
+    margin-bottom: 40px;
+    color: #333;
+    position: relative;
+    display: inline-block;
+    animation: fadeInDown 1s ease-out;
+}
+
+/* Widget container */
+.elfsight-app-593d05a6-795c-4956-a49e-1efccf7d2598 {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Force grid layout and remove slider for all devices */
+.elfsight-app-593d05a6-795c-4956-a49e-1efccf7d2598 .elfsight-reviews-items,
+.elfsight-app-593d05a6-795c-4956-a49e-1efccf7d2598 .elfsight-reviews-slider-items {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    gap: 20px !important;
+    transform: none !important;
+    width: 100% !important;
+    animation: none !important;
+}
+
+/* Individual review cards */
+.elfsight-app-593d05a6-795c-4956-a49e-1efccf7d2598 .elfsight-reviews-item {
+    width: 100% !important;
+    margin: 0 !important;
+    transition: transform 0.3s ease !important;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1) !important;
+    border-radius: 10px !important;
+}
+
+/* Review card hover effect */
+.elfsight-app-593d05a6-795c-4956-a49e-1efccf7d2598 .elfsight-reviews-item:hover {
+    transform: translateY(-5px) !important;
+}
+
+/* Hide all slider related elements */
+.elfsight-app-593d05a6-795c-4956-a49e-1efccf7d2598 .elfsight-reviews-slider-controls,
+.elfsight-app-593d05a6-795c-4956-a49e-1efccf7d2598 .elfsight-reviews-slider-header {
+    display: none !important;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .reviews {
+        padding: 40px 15px;
+    }
+    
+    .reviews h2 {
+        font-size: 2.2em;
+    }
+    
+    /* Ensure grid layout on mobile */
+    .elfsight-app-593d05a6-795c-4956-a49e-1efccf7d2598 .elfsight-reviews-items,
+    .elfsight-app-593d05a6-795c-4956-a49e-1efccf7d2598 .elfsight-reviews-slider-items {
+        grid-template-columns: 1fr !important;
+        width: 100% !important;
+        transform: none !important;
+    }
 }
 
 .price {
@@ -1420,7 +1488,7 @@ header {
 .logo {
     font-size: 1.8rem;
     font-weight: bold;
-    color: #333;
+    color: #f7d9d9;
     padding: 10px 0;
     transition: all 0.3s ease;
 }
@@ -1486,112 +1554,4 @@ header {
     .nav-links li:last-child {
         border-bottom: none;
     }
-    /* Your existing CSS code stays here - DO NOT DELETE */
-
-/* ===== New Customer Reviews Section Styling ===== */
-.reviews {
-    padding: 50px 0;
-    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
-    position: relative;
-    overflow: hidden;
-}
-
-.reviews h2 {
-    text-align: center;
-    font-size: 2.5em;
-    margin-bottom: 30px;
-    color: #333;
-    position: relative;
-    animation: slideInDown 1s ease-out;
-}
-
-/* Animated underline for Reviews heading */
-.reviews h2:after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 3px;
-    background: linear-gradient(90deg, #007bff, #00ff88);
-    animation: expandWidth 1s ease-out forwards;
-}
-
-/* Running line effect for Elfsight reviews widget */
-.elfsight-app-593d05a6-795c-4956-a49e-1efccf7d2598 {
-    animation: slideLeft 30s linear infinite;
-    padding: 20px 0;
-}
-
-/* New Animations for Reviews Section */
-@keyframes slideInDown {
-    from {
-        transform: translateY(-50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-@keyframes expandWidth {
-    from { width: 0; }
-    to { width: 100px; }
-}
-
-@keyframes slideLeft {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
-}
-
-/* Hover pause effect */
-.reviews:hover .elfsight-app-593d05a6-795c-4956-a49e-1efccf7d2598 {
-    animation-play-state: paused;
-}
-
-/* Mobile Responsive for Reviews */
-@media (max-width: 768px) {
-    .reviews h2 {
-        font-size: 2em;
-    }
-    .reviews {
-        padding: 30px 0;
-    }
-}
-
-/* Your existing CSS code continues here */
-}
-
-/* Basic styling first to test if it works */
-.reviews {
-    padding: 50px 0;
-    text-align: center;
-    background: #f5f7fa;
-}
-
-.reviews h2 {
-    font-size: 2.5em;
-    margin-bottom: 30px;
-    color: #333;
-}
-
-/* Widget container styling */
-.elfsight-app-593d05a6-795c-4956-a49e-1efccf7d2598 {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* Make reviews display in grid */
-.elfsight-app-593d05a6-795c-4956-a49e-1efccf7d2598 .elfsight-reviews-items {
-    display: grid !important;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
-    gap: 20px !important;
-}
-
-/* Hide slider controls */
-.elfsight-app-593d05a6-795c-4956-a49e-1efccf7d2598 .elfsight-reviews-slider-controls {
-    display: none !important;
 }
