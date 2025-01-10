@@ -20,11 +20,10 @@ body {
 /* Navigation */
 nav {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 1rem 5%;
     background: #333;
-    color: rgb(70, 60, 60);
+    color: white;
 }
 
 .nav-links {
@@ -156,21 +155,24 @@ nav {
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 1.5rem;
-    margin-top: 1.5rem;
+    margin: 0 auto;
+    padding: 1rem;
+    max-width: 1200px;
+    background: #faf0f0; /* Light pink background like image */
 }
 
 .product-card {
-    background: rgb(193, 188, 188);
     position: relative;
     border: none;
-    border-radius: 50px;
-    overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s, box-shadow 0.5s;
-    cursor: pointer;
-    transform: perspective(1000px) rotateY(0deg);
+    overflow: visible; /* Changed from hidden to visible */
+    padding: 0;
+    transition: transform 0.3s ease;
+    margin: 0 auto;
+    background: transparent;
+    max-width: 200px; /* Maximum width for the card */
+    border-radius: 10px;
 }
 
 .product-card:hover {
@@ -179,13 +181,84 @@ nav {
 }
 
 .product-info {
-    padding: 1.2rem;
+    text-align: center;
+    padding: 1rem 0;
 }
 
 .product-info h3 {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
     color: #333;
+    font-weight: normal;
+    font-family: 'Times New Roman', serif; /* Matches the image font */
+    margin: 0.5rem 0;
+}
+
+.price {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0.3rem 0;
+}
+
+.price .original-price {
+    color: #999;
+    text-decoration: line-through;
+}
+
+.price .current-price {
+    color: #333;
+}
+
+/* Sale and Sold out badges */
+.badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    z-index: 1;
+    background: #000;
+    color: white;
+}
+
+.badge.sold-out {
+    background: #000;
+}
+
+/* Add to cart button */
+.add-to-cart-btn {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #000;
+    border-radius: 25px;
+    background: transparent;
+    color: #000;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+    background: #000;
+    color: white;
+}
+
+.add-to-cart-btn.sold-out {
+    background: #ccc;
+    border-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+    }
 }
 
 .rating {
@@ -256,7 +329,7 @@ nav {
 /* Mobile Responsive */
 @media (max-width: 768px) {
     .reviews {
-        padding: 40px 15px;
+        padding: 10px 0px;
     }
     
     .reviews h2 {
@@ -270,13 +343,6 @@ nav {
         width: 100% !important;
         transform: none !important;
     }
-}
-
-.price {
-    font-size: 1.3rem;
-    font-weight: bold;
-    color: #2c3e50;
-    margin-bottom: 1rem;
 }
 
 .personalize-btn {
@@ -522,16 +588,8 @@ footer {
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 1rem;
-    animation: blinkColors 2s infinite;
 }
 
-@keyframes blinkColors {
-    0% { color: #ffc107; }
-    25% { color: #00ffff; }
-    50% { color: #ff00ff; }
-    75% { color: #00ff00; }
-    100% { color: #ffc107; }
-}
 
 .footer-links {
     list-style: none;
@@ -579,7 +637,7 @@ footer {
 .slide img, .product-image img {
     width: 100%;
     height: auto;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
 }
 
@@ -1132,21 +1190,34 @@ header img {
 }
 
 .book-now-btn {
-    width: 100%;
-    padding: 0.8rem;
-    background: #e44d26;
+    background: linear-gradient(to right, #2c3e50, #3498db);
     color: white;
+    width: 100%;
+    padding: 12px 25px;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
     cursor: pointer;
-    font-weight: bold;
-    transition: background 0.3s ease;
+    transition: all 0.3s ease;
+    text-align: center;
+    margin-top: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .book-now-btn:hover {
-    background: #c73e1d;
+    background: linear-gradient(to right, #34495e, #2980b9);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
-
+.book-now-btn:hover:before {
+    left: 100%;
+}
+.book-now-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
 @media (max-width: 768px) {
     .service-grid {
         grid-template-columns: 1fr;
@@ -1155,35 +1226,27 @@ header img {
 
 /* Buy Now Button Animation */
 .buy-now-btn {
-    position: relative;
-    background: linear-gradient(45deg, #ff4e50, #f9d423);
+    background: linear-gradient(to right, #2c3e50, #3498db);
     color: white;
+    width: 100%;
+    padding: 12px 25px;
     border: none;
-    padding: 12px 24px;
-    border-radius: 25px;
-    font-weight: bold;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    margin-top: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.buy-now-btn:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
-    transition: all 0.5s ease;
-}
 
 .buy-now-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    background: linear-gradient(to right, #34495e, #2980b9);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .buy-now-btn:hover:before {
@@ -1263,6 +1326,10 @@ header img {
     animation: pulse 2s infinite;
 }
 
+.book-now-btn {
+    animation: pulse 2s infinite;
+}
+
 /* Add floating animation for navigation buttons */
 @keyframes float {
     0% {
@@ -1285,10 +1352,10 @@ header img {
 }
 
 /* Add hover effect for product cards */
-.product-card:hover .buy-now-btn {
+/* .product-card:hover .buy-now-btn {
     animation: none;
     background: linear-gradient(45deg, #f9d423, #ff4e50);
-}
+} */
 
 /* Pagination Buttons Styling */
 .pagination {
@@ -1610,8 +1677,12 @@ header img {
 .product-grid {
     flex: 1;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    margin: 0 auto;
+    padding: 1rem;
+    max-width: 1200px;
+    background: #8d8d8d;
 }
 
 /* Animations */
@@ -1896,13 +1967,13 @@ header {
 
     /* Products Grid */
     .product-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 15px;
-        padding: 10px;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+        padding: 0.5rem;
     }
 
     .product-card {
-        width: 100%;
+        max-width: 180px;
     }
 
     /* Contact Section */
@@ -2199,72 +2270,325 @@ button,
 }
 
 .team-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-    max-width: 1200px;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    max-width: 800px;
     margin: 0 auto;
     padding: 0 15px;
 }
 
 .team-member {
     text-align: center;
-    width: 100%;
+    width: fit-content;
 }
 
 .team-member img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    margin-bottom: 1rem;
-    background: white;
+    width: 250px;
+    height: 250px;
+    object-fit: contain;
+    margin: 0 auto 1rem auto;
     display: block;
+    border-radius: 10px;
+    background-color: #050404;
 }
 
 .team-member h3 {
-    color: white;
+    margin-top: 10px;
     font-size: 1.2rem;
-    margin-bottom: 0.5rem;
+    color: #fff;
 }
 
 .team-member p {
     color: var(--secondary-color);
+    font-size: 1rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .team-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+    
+    .team-member {
+        width: fit-content;
+    }
+    
+    .team-member img {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+/* Add these new styles for product images */
+.product-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 40% 40% 40% 40%; /* Creates oval shape */
+    overflow: visible; /* Changed from hidden to visible */
+    background: transparent;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Changed from cover to contain */
+    transform: scale(0.9); /* Slightly smaller to prevent overflow */
+}
+
+/* Update responsive design for images */
+@media screen and (max-width: 768px) {
+    .product-image {
+        height: 150px;
+    }
+}
+
+/* Common Button Styles */
+.book-now-btn, .add-to-cart-btn, .whatsapp-btn, .quick-view {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* Primary Button (Book Now/Buy Now) */
+.book-now-btn, 
+.shop-now-btn,
+.explore-btn {
+    background: linear-gradient(to right, #2c3e50, #3498db);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    margin-top: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.book-now-btn:hover,
+.shop-now-btn:hover,
+.explore-btn:hover {
+    background: linear-gradient(to right, #34495e, #2980b9);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Hero Section Button */
+.hero-btn {
+    background: rgba(44, 62, 80, 0.9);
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hero-btn:hover {
+    background: rgba(44, 62, 80, 1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Category Button */
+.category-btn {
+    background: #e74c3c;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
     font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsive Design */
-@media (max-width: 1200px) {
-    .team-grid {
-        grid-template-columns: repeat(4, 1fr);
+.category-btn:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* View All Button */
+.view-all-btn {
+    background: #25D366;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 15px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.quick-view:hover {
+    background: rgba(44, 62, 80, 1);
+}
+
+/* Modal Buttons Container */
+.modal-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Icons in buttons */
+.book-now-btn i,
+.whatsapp-btn i,
+.add-to-cart-btn i {
+    font-size: 1.2em;
+}
+
+/* Search Container Styles */
+.search-container {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 25px;
+    padding: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#searchInput {
+    border: none;
+    padding: 8px 15px;
+    border-radius: 25px;
+    width: 300px;
+    font-size: 14px;
+    outline: none;
+}
+
+.search-btn {
+    background: linear-gradient(to right, #ff416c, #ff9f4a);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.search-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Update nav styles to accommodate search */
+nav {
+    display: flex;
+    align-items: center;
+    padding: 1rem 5%;
+    background: #333;
+    color: white;
+}
+
+/* Make nav responsive */
+@media (max-width: 768px) {
+    .search-container {
+        width: 100%;
+        max-width: 300px;
     }
-    
-    .team-member img {
-        height: 250px;
+
+    #searchInput {
+        width: 100%;
+    }
+
+    nav {
+        flex-wrap: wrap;
     }
 }
 
-@media (max-width: 992px) {
-    .team-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-    
-    .team-member img {
-        height: 350px;
-    }
+/* Header Icons Style */
+.header-icons {
+    margin-right: 20px; /* Space between icon and logo */
 }
 
-@media (max-width: 576px) {
-    .team-grid {
-        grid-template-columns: repeat(1, 1fr);
-    }
-    
-    .team-member img {
-        height: 400px;
-        max-width: 100%;
-    }
-    
-    .team-section h2 {
-        font-size: 3rem;
-    }
+.icon-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 5px;
+    transition: transform 0.3s ease;
+}
+
+.icon-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Search Overlay Styles */
+.search-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.search-overlay.active {
+    display: flex;
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 2rem 0;
+    padding: 1rem;
+}
+
+.pagination button {
+    padding: 0.5rem 1rem;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.pagination button:hover:not(:disabled) {
+    background-color: #555;
+}
+
+.pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.pagination #pageInfo {
+    font-size: 1rem;
+    color: #333;
 }

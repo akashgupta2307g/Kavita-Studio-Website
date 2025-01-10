@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Collage Photo Design- Kavita Studio</title>
+    <link rel="icon" type="image/x-icon" href="images/logo.jpg">
+    <link rel="shortcut icon" type="image/x-icon" href="images/logo.jpg">
+    <link rel="apple-touch-icon" href="images/logo.jpg">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
@@ -11,7 +14,9 @@
 <body>
     <nav>
         <a href="index.html" class="logo-link">
-            <div class="logo">Kavita Studio</div>
+            <div class="logo">
+                <img src="images/logo.jpg" alt="Kavita Studio">
+            </div>
         </a>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
@@ -30,17 +35,17 @@
             <div class="product-card">
                 <div class="badge">Popular</div>
                 <div class="product-image">
-                    <img src="images/06.jpg" alt="Collage Frame Design">
-                    <div class="quick-view">Quick View</div>
+                    <img src="images/07.jpg" alt="Collage Frame Design">
+                    <button class="quick-view" onclick="openProductModal(event)">Quick View</button>
                 </div>
                 <div class="product-info">
-                    <h3>Collage <Frame> Design</Frame></h3>
+                    <h3>Collage Frame Design</h3>
                     <div class="rating">
                         <span class="stars">★★★★★</span>
                         <span class="reviews">(120)</span>
                     </div>
-                    <div class="price">Price Bassed on Frame Size</div>
-                    <button class="personalize-btn">Book Now</button>
+                    <div class="price">Price Based on Frame Size</div>
+                    <button class="book-now-btn" onclick="openProductModal(event)">Book Now</button>
                 </div>
             </div>
 
@@ -48,33 +53,33 @@
             <div class="product-card">
                 <div class="product-image">
                     <img src="images/B'day collage.jpg" alt="Pre-Wedding Shoot">
-                    <div class="quick-view">Quick View</div>
+                    <button class="quick-view" onclick="openProductModal(event)">Quick View</button>
                 </div>
                 <div class="product-info">
-                    <h3>Pre-Wedding Shoot</h3>
+                    <h3>Custmize Collage Frame</h3>
                     <div class="rating">
                         <span class="stars">★★★★★</span>
                         <span class="reviews">(85)</span>
                     </div>
-                    <div class="price">Starting from ₹10,000</div>
-                    <button class="personalize-btn">Book Now</button>
+                    <div class="price">Price Based On Frame Size</div>
+                    <button class="book-now-btn" onclick="openProductModal(event)">Book Now</button>
                 </div>
             </div>
 
             <!-- Product Card 3 -->
             <div class="product-card">
                 <div class="product-image">
-                    <img src="images/birthday.jpg" alt="Birthday Photography">
-                    <div class="quick-view">Quick View</div>
+                    <img src="images/02...jpg" alt="Custmize collage frame">
+                    <button class="quick-view" onclick="openProductModal(event)">Quick View</button>
                 </div>
                 <div class="product-info">
-                    <h3>Birthday Photography</h3>
+                    <h3>Custmize Collage Frame</h3>
                     <div class="rating">
                         <span class="stars">★★★★☆</span>
                         <span class="reviews">(65)</span>
                     </div>
-                    <div class="price">Starting from ₹5,000</div>
-                    <button class="personalize-btn">Book Now</button>
+                    <div class="price">Price Based On Frame Size</div>
+                    <button class="book-now-btn" onclick="openProductModal(event)">Book Now</button>
                 </div>
             </div>
 
@@ -82,67 +87,575 @@
             <div class="product-card">
                 <div class="badge">New</div>
                 <div class="product-image">
-                    <img src="images/corporate.jpg" alt="Corporate Events">
-                    <div class="quick-view">Quick View</div>
+                    <img src="images/03.jpg" alt="Collage Frame Design">
+                    <button class="quick-view" onclick="openProductModal(event)">Quick View</button>
                 </div>
                 <div class="product-info">
-                    <h3>Corporate Events</h3>
+                    <h3>Custmize Collage Frame</h3>
                     <div class="rating">
                         <span class="stars">★★★★★</span>
                         <span class="reviews">(42)</span>
                     </div>
-                    <div class="price">Starting from ₹20,000</div>
-                    <button class="personalize-btn">Book Now</button>
+                    <div class="price">Price Based On Frame Size</div>
+                    <button class="book-now-btn" onclick="openProductModal(event)">Book Now</button>
                 </div>
             </div>
 
             <!-- Product Card 5 -->
             <div class="product-card">
                 <div class="product-image">
-                    <img src="images/fashion.jpg" alt="Fashion Photography">
-                    <div class="quick-view">Quick View</div>
+                    <img src="images/05.jpg" alt="Fashion Photography">
+                    <button class="quick-view" onclick="openProductModal(event)">Quick View</button>
                 </div>
                 <div class="product-info">
-                    <h3>Fashion Photography</h3>
+                    <h3>Custmize Collage Frame</h3>
                     <div class="rating">
                         <span class="stars">★★★★☆</span>
                         <span class="reviews">(38)</span>
                     </div>
-                    <div class="price">Starting from ₹8,000</div>
-                    <button class="personalize-btn">Book Now</button>
+                    <div class="price">Price Based On Frame Size</div>
+                    <button class="book-now-btn" onclick="openProductModal(event)">Book Now</button>
                 </div>
             </div>
+            <!-- Product Card 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/08.jpg" alt="Fashion Photography">
+                    <button class="quick-view" onclick="openProductModal(event)">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>Custmize Collage Frame</h3>
+                    <div class="rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="reviews">(38)</span>
+                    </div>
+                    <div class="price">Price Based On Frame Size</div>
+                    <button class="book-now-btn" onclick="openProductModal(event)">Book Now</button>
+                </div>
+            </div>
+            <!-- Product Card 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/09.jpg" alt="Fashion Photography">
+                    <button class="quick-view" onclick="openProductModal(event)">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>Custmize Collage Frame</h3>
+                    <div class="rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="reviews">(38)</span>
+                    </div>
+                    <div class="price">Price Based On Frame Size</div>
+                    <button class="book-now-btn" onclick="openProductModal(event)">Book Now</button>
+                </div>
+            </div>
+            <!-- Product Card 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/10.jpg" alt="Fashion Photography">
+                    <button class="quick-view" onclick="openProductModal(event)">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>Custmize Collage Frame</h3>
+                    <div class="rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="reviews">(38)</span>
+                    </div>
+                    <div class="price">Price Based On Frame Size</div>
+                    <button class="book-now-btn" onclick="openProductModal(event)">Book Now</button>
+                </div>
+            </div>
+            <!-- Product Card 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/11.jpg" alt="Fashion Photography">
+                    <button class="quick-view" onclick="openProductModal(event)">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>Custmize Collage Frame</h3>
+                    <div class="rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="reviews">(38)</span>
+                    </div>
+                    <div class="price">Price Based On Frame Size</div>
+                    <button class="book-now-btn" onclick="openProductModal(event)">Book Now</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/04.jpg" alt="Fashion Photography">
+                    <button class="quick-view" onclick="openProductModal(event)">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>Custmize Collage Frame</h3>
+                    <div class="rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="reviews">(38)</span>
+                    </div>
+                    <div class="price">Price Based On Frame Size</div>
+                    <button class="book-now-btn" onclick="openProductModal(event)">Book Now</button>
+                </div>
+            </div>
+            
 
             <!-- Product Card 6 -->
             <div class="product-card">
                 <div class="product-image">
-                    <img src="images/product.jpg" alt="Product Photography">
-                    <div class="quick-view">Quick View</div>
+                    <img src="images/06.jpg" alt="Product Photography">
+                    <button class="quick-view" onclick="openProductModal(event)">Quick View</button>
                 </div>
                 <div class="product-info">
-                    <h3>Product Photography</h3>
+                    <h3>Custmize Collage Frame</h3>
                     <div class="rating">
                         <span class="stars">★★★★★</span>
                         <span class="reviews">(55)</span>
                     </div>
-                    <div class="price">Starting from ₹3,000</div>
-                    <button class="personalize-btn">Book Now</button>
+                    <div class="price">Price Based On Frame Size</div>
+                    <button class="book-now-btn" onclick="openProductModal(event)">Book Now</button>
+                </div>
+            </div>
+            
+            <!-- Add these new product cards inside your existing product-grid div -->
+            <div class="product-card">
+                <div class="badge">NEW</div>
+                <div class="product-image">
+                    <img src="images/birthday collage.jpg" alt="Family Collage">
+                    <button class="quick-view" onclick="openProductModal(event)">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>Custmize Collage Frame</h3>
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="reviews">(42)</span>
+                    </div>
+                    <div class="price">Price Based On Frame Size</div>
+                    <button class="book-now-btn" onclick="openProductModal(event)">Book Now</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/Ash.jpg" alt="Birthday Collage">
+                    <button class="quick-view" onclick="openProductModal(event)">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>Birthday Special Frame</h3>
+                    <div class="rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="reviews">(35)</span>
+                    </div>
+                    <div class="price">Price Based On Frame Size</div>
+                    <button class="book-now-btn" onclick="openProductModal(event)">Book Now</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="badge">Popular</div>
+                <div class="product-image">
+                    <img src="images/Ash1.jpg" alt="Wedding Collage">
+                    <button class="quick-view" onclick="openProductModal(event)">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>Wedding Memory Frame</h3>
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="reviews">(67)</span>
+                    </div>
+                    <div class="price">Price Based On Frame Size</div>
+                    <button class="book-now-btn" onclick="openProductModal(event)">Book Now</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/Ash3.jpg" alt="Anniversary Collage">
+                    <button class="quick-view" onclick="openProductModal(event)">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>Anniversary Special Frame</h3>
+                    <div class="rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="reviews">(29)</span>
+                    </div>
+                    <div class="price">Price Based On Frame Size</div>
+                    <button class="book-now-btn" onclick="openProductModal(event)">Book Now</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="badge">Best Seller</div>
+                <div class="product-image">
+                    <img src="images/Ash4.jpg" alt="Baby Collage">
+                    <button class="quick-view" onclick="openProductModal(event)">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>Baby Photo Collection</h3>
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="reviews">(83)</span>
+                    </div>
+                    <div class="price">Price Based On Frame Size</div>
+                    <button class="book-now-btn" onclick="openProductModal(event)">Book Now</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/moon.jpg" alt="Graduation Collage">
+                    <button class="quick-view" onclick="openProductModal(event)">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>Graduation Memory Frame</h3>
+                    <div class="rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="reviews">(45)</span>
+                    </div>
+                    <div class="price">Price Based On Frame Size</div>
+                    <button class="book-now-btn" onclick="openProductModal(event)">Book Now</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="badge">NEW</div>
+                <div class="product-image">
+                    <img src="images/Creative Anniversary and Birthday Frame.jpg" alt="Festival Collage">
+                    <button class="quick-view" onclick="openProductModal(event)">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>Festival Memories Frame</h3>
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="reviews">(31)</span>
+                    </div>
+                    <div class="price">Price Based On Frame Size</div>
+                    <button class="book-now-btn" onclick="openProductModal(event)">Book Now</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/frame.jpg" alt="Friendship Collage">
+                    <button class="quick-view" onclick="openProductModal(event)">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>Friendship Special Frame</h3>
+                    <div class="rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="reviews">(52)</span>
+                    </div>
+                    <div class="price">Price Based On Frame Size</div>
+                    <button class="book-now-btn" onclick="openProductModal(event)">Book Now</button>
+                </div>
+            </div>
+
+            <!-- Additional dummy product cards -->
+            <div class="product-card">
+                <div class="badge">NEW</div>
+                <div class="product-image">
+                    <img src="images/frame2.jpg" alt="Love Story Collage">
+                    <button class="quick-view" onclick="openProductModal(event)">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>Love Story Frame</h3>
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="reviews">(73)</span>
+                    </div>
+                    <div class="price">Price Based On Frame Size</div>
+                    <button class="book-now-btn" onclick="openProductModal(event)">Book Now</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="badge">Popular</div>
+                <div class="product-image">
+                    <img src="images/frame3.jpg" alt="Travel Memories">
+                    <button class="quick-view" onclick="openProductModal(event)">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>Travel Memories Frame</h3>
+                    <div class="rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="reviews">(48)</span>
+                    </div>
+                    <div class="price">Price Based On Frame Size</div>
+                    <button class="book-now-btn" onclick="openProductModal(event)">Book Now</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/f1.jpg" alt="School Memory">
+                    <button class="quick-view" onclick="openProductModal(event)">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>School Memory Frame</h3>
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="reviews">(91)</span>
+                    </div>
+                    <div class="price">Price Based On Frame Size</div>
+                    <button class="book-now-btn" onclick="openProductModal(event)">Book Now</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="badge">Best Seller</div>
+                <div class="product-image">
+                    <img src="images/f2.jpg" alt="College Farewell">
+                    <button class="quick-view" onclick="openProductModal(event)">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>College Farewell Frame</h3>
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="reviews">(64)</span>
+                    </div>
+                    <div class="price">Price Based On Frame Size</div>
+                    <button class="book-now-btn" onclick="openProductModal(event)">Book Now</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/Family Collage.jpg" alt="Family Reunion">
+                    <button class="quick-view" onclick="openProductModal(event)">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>Family Reunion Frame</h3>
+                    <div class="rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="reviews">(57)</span>
+                    </div>
+                    <div class="price">Price Based On Frame Size</div>
+                    <button class="book-now-btn" onclick="openProductModal(event)">Book Now</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="badge">NEW</div>
+                <div class="product-image">
+                    <img src="images/59-15.png.webp" alt="Festival Celebration">
+                    <button class="quick-view" onclick="openProductModal(event)">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>Festival Celebration Frame</h3>
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="reviews">(39)</span>
+                    </div>
+                    <div class="price">Price Based On Frame Size</div>
+                    <button class="book-now-btn" onclick="openProductModal(event)">Book Now</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/26.jpg" alt="Baby Shower">
+                    <button class="quick-view" onclick="openProductModal(event)">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>Baby Shower Frame</h3>
+                    <div class="rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="reviews">(43)</span>
+                    </div>
+                    <div class="price">Price Based On Frame Size</div>
+                    <button class="book-now-btn" onclick="openProductModal(event)">Book Now</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="badge">Popular</div>
+                <div class="product-image">
+                    <img src="images/27.jpg" alt="Anniversary Special">
+                    <button class="quick-view" onclick="openProductModal(event)">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>25th Anniversary Special</h3>
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="reviews">(82)</span>
+                    </div>
+                    <div class="price">Price Based On Frame Size</div>
+                    <button class="book-now-btn" onclick="openProductModal(event)">Book Now</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/28.jpg" alt="Retirement Frame">
+                    <button class="quick-view" onclick="openProductModal(event)">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>Retirement Memory Frame</h3>
+                    <div class="rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="reviews">(36)</span>
+                    </div>
+                    <div class="price">Price Based On Frame Size</div>
+                    <button class="book-now-btn" onclick="openProductModal(event)">Book Now</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="badge">NEW</div>
+                <div class="product-image">
+                    <img src="images/29.jpg" alt="Pet Memory">
+                    <button class="quick-view" onclick="openProductModal(event)">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>Pet Memory Frame</h3>
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="reviews">(28)</span>
+                    </div>
+                    <div class="price">Price Based On Frame Size</div>
+                    <button class="book-now-btn" onclick="openProductModal(event)">Book Now</button>
                 </div>
             </div>
         </div>
+        <div class="pagination">
+            <button id="prevPage" disabled>Previous</button>
+            <span id="pageInfo"></span>
+            <button id="nextPage">Next</button>
+        </div>
     </section>
 
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="product-details">
+                <div class="product-details-image">
+                    <img id="modalProductImage" src="" alt="Product Image">
+                </div>
+                <div class="product-details-info">
+                    <h2 id="modalProductTitle"></h2>
+                    <div class="rating">
+                        <span id="modalProductRating" class="stars"></span>
+                        <span id="modalProductReviews" class="reviews"></span>
+                    </div>
+                    <p id="modalProductPrice" class="price"></p>
+                    <div class="product-description">
+                        <h3>Product Description</h3>
+                        <p id="modalProductDescription">Beautiful customized collage frame perfect for your memories.</p>
+                    </div>
+                    <div class="modal-buttons">
+                        <a id="whatsappButton" href="" target="_blank" class="whatsapp-btn">
+                            <i class="fab fa-whatsapp"></i> Buy on WhatsApp
+                        </a>
+                        <button id="addToCartButton" class="add-to-cart-btn">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
     <script>
         AOS.init({
             duration: 1000,
             once: true
         });
 
-        function contactOnWhatsApp(service) {
-            const whatsappNumber = '917524963330'; // Add your WhatsApp number here
-            const message = encodeURIComponent(`Hi! I'm interested in booking ${service}`);
-            window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+        // Pagination logic
+        const productsPerPage = 10;
+        let currentPage = 1;
+
+        function displayProducts(page) {
+            const productGrid = document.querySelector('.product-grid');
+            const products = Array.from(productGrid.children);
+            const totalPages = Math.ceil(products.length / productsPerPage);
+
+            // Hide all products
+            products.forEach(product => product.style.display = 'none');
+
+            // Calculate start and end index for current page
+            const start = (page - 1) * productsPerPage;
+            const end = start + productsPerPage;
+
+            // Show products for current page
+            products.slice(start, end).forEach(product => product.style.display = 'block');
+
+            // Update pagination info
+            document.getElementById('pageInfo').textContent = `Page ${page} of ${totalPages}`;
+
+            // Enable/disable pagination buttons
+            document.getElementById('prevPage').disabled = page === 1;
+            document.getElementById('nextPage').disabled = page === totalPages;
+        }
+
+        // Event listeners for pagination buttons
+        document.getElementById('prevPage').addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                displayProducts(currentPage);
+                // Scroll to top of products section
+                document.querySelector('.products').scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+
+        document.getElementById('nextPage').addEventListener('click', () => {
+            const totalPages = Math.ceil(document.querySelector('.product-grid').children.length / productsPerPage);
+            if (currentPage < totalPages) {
+                currentPage++;
+                displayProducts(currentPage);
+                // Scroll to top of products section
+                document.querySelector('.products').scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+
+        // Initialize the first page
+        document.addEventListener('DOMContentLoaded', () => displayProducts(currentPage));
+
+        function openProductModal(event) {
+            event.preventDefault();
+            const modal = document.getElementById('productModal');
+            const productCard = event.target.closest('.product-card');
+            
+            // Get product details
+            const title = productCard.querySelector('h3').textContent;
+            const rating = productCard.querySelector('.stars').textContent;
+            const reviews = productCard.querySelector('.reviews').textContent;
+            const price = productCard.querySelector('.price').textContent;
+            const image = productCard.querySelector('img').src;
+            
+            // Update modal content
+            document.getElementById('modalProductTitle').textContent = title;
+            document.getElementById('modalProductRating').textContent = rating;
+            document.getElementById('modalProductReviews').textContent = reviews;
+            document.getElementById('modalProductPrice').textContent = price;
+            document.getElementById('modalProductImage').src = image;
+            
+            // Update WhatsApp button
+            const whatsappNumber = '919889387743';
+            const message = encodeURIComponent(`Hi! I'm interested in ${title}. Please provide more details.`);
+            document.getElementById('whatsappButton').href = `https://wa.me/${whatsappNumber}?text=${message}`;
+            
+            // Show modal
+            modal.style.display = 'block';
+        }
+
+        // Close modal when clicking on X
+        document.querySelector('.close-modal').onclick = function() {
+            document.getElementById('productModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('productModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Add to cart functionality
+        document.getElementById('addToCartButton').onclick = function() {
+            alert('Product added to cart!');
+            document.getElementById('productModal').style.display = 'none';
         }
     </script>
 </body>

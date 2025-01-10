@@ -47,9 +47,13 @@
         <div id="checkoutDetails" style="display: none;">
             <p id="totalAmount"></p>
             <p id="totalQuantity"></p>
-            <button onclick="buyNow()">Buy Now</button>
+            <button class="whatsapp-btn" onclick="buyNow()">
+                <i class="fab fa-whatsapp"></i> Buy on WhatsApp
+            </button>
         </div>
-        <button id="proceedToCheckout" onclick="proceedToCheckout()">Proceed to Checkout</button>
+        <button id="proceedToCheckout" class="book-now-btn" onclick="proceedToCheckout()">
+            <i class="fas fa-shopping-cart"></i> Proceed to Checkout
+        </button>
     </div>
 
     <script>
@@ -116,13 +120,20 @@
 
         function buyNow() {
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            let message = 'I want to buy these items: ';
+            let message = 'Hi! I want to buy these items:\n\n';
+            let totalAmount = 0;
+            
             cart.forEach(item => {
-                message += `${item.title} (Quantity: ${item.quantity}), `;
+                const price = parseFloat(item.price.replace('₹', ''));
+                totalAmount += price * item.quantity;
+                message += `${item.title} (Quantity: ${item.quantity}) - ₹${price * item.quantity}\n`;
             });
+            
+            message += `\nTotal Amount: ₹${totalAmount.toFixed(2)}`;
 
+            const whatsappNumber = '919889387743'; // Your WhatsApp number
             const encodedMessage = encodeURIComponent(message);
-            window.location.href = `https://wa.me/yourwhatsappnumber?text=${encodedMessage}`;
+            window.location.href = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
         }
     </script>
 </body>

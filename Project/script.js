@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const whatsappNumber = '911234567890'; // Replace with your actual WhatsApp number
             const message = encodeURIComponent(`Hi! I'm interested in buying ${title} for ${price}`);
             document.getElementById('whatsappButton').href = 
-                `https://wa.me/${+917524963330}?text=${message}`;
+                `https://wa.me/${+919889387743}?text=${message}`;
 
             modal.style.display = 'block';
         } catch (error) {
@@ -446,7 +446,7 @@ document.addEventListener('keydown', function(e) {
 
 // Add this function after your existing code
 function bookService(serviceName, price) {
-    const whatsappNumber = '+917524963330'; // Your WhatsApp number
+    const whatsappNumber = '+919889387743'; // Your WhatsApp number
     const message = encodeURIComponent(`Hi! I'm interested in booking the ${serviceName} for ${price}`);
     window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
 }
@@ -509,4 +509,55 @@ document.addEventListener('keydown', function(e) {
         e.preventDefault();
         goBack();
     }
+});
+
+// Product Modal Functions
+function openProductModal(event) {
+    const modal = document.getElementById('productModal');
+    const productCard = event.target.closest('.product-card');
+    
+    // Get product details
+    const title = productCard.querySelector('h3').textContent;
+    const rating = productCard.querySelector('.stars').textContent;
+    const reviews = productCard.querySelector('.reviews').textContent;
+    const price = productCard.querySelector('.price').textContent;
+    const image = productCard.querySelector('img').src;
+    
+    // Update modal content
+    document.getElementById('modalProductTitle').textContent = title;
+    document.getElementById('modalProductRating').textContent = rating;
+    document.getElementById('modalProductReviews').textContent = reviews;
+    document.getElementById('modalProductPrice').textContent = price;
+    document.getElementById('modalProductImage').src = image;
+    
+    // Update WhatsApp button
+    const whatsappNumber = '919889387743';
+    const message = encodeURIComponent(`Hi! I'm interested in ${title}. Please provide more details.`);
+    document.getElementById('whatsappButton').href = `https://wa.me/${whatsappNumber}?text=${message}`;
+    
+    // Show modal
+    modal.style.display = 'block';
+}
+
+// Close modal when clicking on X
+document.querySelector('.close-modal')?.addEventListener('click', function() {
+    document.getElementById('productModal').style.display = 'none';
+});
+
+// Close modal when clicking outside
+window.addEventListener('click', function(event) {
+    const modal = document.getElementById('productModal');
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
+});
+
+// Add to cart functionality
+document.getElementById('addToCartButton')?.addEventListener('click', function() {
+    const title = document.getElementById('modalProductTitle').textContent;
+    const price = document.getElementById('modalProductPrice').textContent;
+    const imageUrl = document.getElementById('modalProductImage').src;
+    
+    addToCart({ title, price, imageUrl });
+    document.getElementById('productModal').style.display = 'none';
 });

@@ -7,32 +7,19 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    <style>
-        .logo {
-            animation: colorBlink 2s infinite;
-        }
-
-        @keyframes colorBlink {
-            0% { color: rgb(43, 35, 35); }
-            25% { color: rgb(137, 137, 230); }
-            50% { color: green; }
-            75% { color: orange; }
-            100% { color: red; }
-        }
-    </style>
     <script src="https://static.elfsight.com/platform/platform.js" async></script>
 </head>
 <body>
     <!-- Navigation -->
     <header>
+        <button class="hamburger-menu" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </button>
         <a href="index.html" class="logo-link">
             <div class="logo">
                 <img src="images/logo.jpg" alt="Kavita Studio">
             </div>
         </a>
-        <button class="hamburger-menu" onclick="toggleMenu()">
-            <i class="fas fa-bars"></i>
-        </button>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="wedding-services.html">Wedding Photography</a></li>
@@ -541,7 +528,8 @@
 
     <footer>
         <div class="footer-content">
-            <div class="footer-logo">Kavita Studio</div>
+            <div class="footer-logo">Kavita Studio
+            </div>
             <ul class="footer-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About Us</a></li>
@@ -549,7 +537,7 @@
                 <li><a href="#terms">Terms of Service</a></li>
                 <li><a href="#privacy">Privacy Policy</a></li>
             </ul>
-            <p>&copy; 2024 Kavita Studio. All rights reserved.</p>
+            <p>&copy; 2025 Kavita Studio. All rights reserved.</p>
             <p>Developed & Owned by Akash Gupta</p>
             <div class="social-icons">
                 <a href="#"><i class="fab fa-facebook"></i></a>
